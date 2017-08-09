@@ -22,8 +22,8 @@ node {
        
    stage('Results') {
    		unstash 'jar'
-   		unstash 'javadoc'
         archiveArtifacts artifacts:'target/*.jar'
+   		unstash 'javadoc'
         archiveArtifacts artifacts:'target/site/'
    }
 }

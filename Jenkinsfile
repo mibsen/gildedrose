@@ -1,6 +1,6 @@
 node {
    stage('Preparation') {
-        git credentialsId: 'ubuntu', url: 'git@github.com:mibsen/gildedrose.git'
+        checkout scm
    }
    
    stage('parallel'){

@@ -6,10 +6,10 @@ node {
    stage('parallel'){
         parallel(
             'Build' : {
-                sh "docker run --rm -i -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven:3-jdk-8 clean package"  
+                sh "docker run --rm -i -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven:3-jdk-8 mvn clean package"  
        },
        'Javadoc' : {
-            sh "docker run --rm -i -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven:3-jdk-8 site"
+            sh "docker run --rm -i -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven:3-jdk-8 mvn site"
             archive 'target/site/*'  
        }
     )
